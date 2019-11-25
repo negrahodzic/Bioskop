@@ -25,25 +25,23 @@ import storage.StorageUser;
 public class StorageDatabaseUser implements StorageUser {
 
     public List<User> getAllUsers() throws SQLException {
-        Connection connection = ConnectionCinema.getInstance().getConnection();
-        ResultSet rs = null;
-        User user = new User();
-        List<User> users = new ArrayList<>();
+        List<User> users = new ArrayList<User>();
         try {
-            Statement statement = connection.createStatement();
+            Connection connection = ConnectionCinema.getInstance().getConnection();
+            
+            Statement statement = connection.createStatement(); 
             String query = "SELECT * FROM korisnik";
-            rs = statement.executeQuery(query);
-            
+            ResultSet rs = statement.executeQuery(query);
             while (rs.next()) {
-                user.setId(rs.getLong("korisnikID"));
-                user.setUsername(rs.getString("korisnickoIme"));
-                user.setPassword(rs.getString("sifra"));
-                user.setName(rs.getString("ime"));
-                user.setSurname(rs.getString("prezime"));
-                user.setEmail(rs.getString("email"));
+                Long id = rs.getLong("korisnikID");
+                String username = rs.getString("korisnickoIme");
+                String password = rs.getString("sifra");
+                String name = rs.getString("ime");
+                String surname = rs.getString("prezime");
+                String email = rs.getString("email");
+                User user = new User(id, username, password,name, surname, email);
                 users.add(user);
-            }
-            
+            } 
         } catch (SQLException ex) {
             Logger.getLogger(ConnectionCinema.class.getName()).log(Level.SEVERE, null, ex);
         }

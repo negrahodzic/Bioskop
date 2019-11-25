@@ -19,6 +19,7 @@ public class FormLogIn extends javax.swing.JFrame {
      */
     public FormLogIn() {
         initComponents();
+        prepareView();
     }
 
     /**
@@ -32,10 +33,11 @@ public class FormLogIn extends javax.swing.JFrame {
 
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
-        txtKorisnickoIme = new javax.swing.JTextField();
-        btnPrijaviSe = new javax.swing.JButton();
-        lblGreska = new javax.swing.JLabel();
-        txtKorisnickaSifra = new javax.swing.JPasswordField();
+        txtUsername = new javax.swing.JTextField();
+        btnLogIn = new javax.swing.JButton();
+        lblError = new javax.swing.JLabel();
+        txtPassword = new javax.swing.JPasswordField();
+        imgStar = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -43,77 +45,77 @@ public class FormLogIn extends javax.swing.JFrame {
 
         jLabel2.setText("Korisnicka sifra:");
 
-        btnPrijaviSe.setText("Prijavi se");
-        btnPrijaviSe.addActionListener(new java.awt.event.ActionListener() {
+        btnLogIn.setText("Prijavi se");
+        btnLogIn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnPrijaviSeActionPerformed(evt);
+                btnLogInActionPerformed(evt);
             }
         });
 
-        lblGreska.setFont(new java.awt.Font("Tahoma", 0, 8)); // NOI18N
-        lblGreska.setForeground(new java.awt.Color(255, 0, 0));
+        lblError.setFont(new java.awt.Font("Tahoma", 0, 8)); // NOI18N
+        lblError.setForeground(new java.awt.Color(255, 0, 0));
+
+        imgStar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/imgStar.png")));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap(22, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(imgStar, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(lblGreska, javax.swing.GroupLayout.PREFERRED_SIZE, 282, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(btnPrijaviSe, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, 96, Short.MAX_VALUE))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(txtKorisnickoIme, javax.swing.GroupLayout.DEFAULT_SIZE, 277, Short.MAX_VALUE)
-                            .addComponent(txtKorisnickaSifra))))
-                .addGap(0, 33, Short.MAX_VALUE))
+                            .addComponent(txtPassword)
+                            .addComponent(txtUsername, javax.swing.GroupLayout.PREFERRED_SIZE, 277, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(lblError, javax.swing.GroupLayout.PREFERRED_SIZE, 248, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(38, 38, 38)
+                        .addComponent(btnLogIn, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(20, 20, 20)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel1)
-                    .addComponent(txtKorisnickoIme, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel2)
-                    .addComponent(txtKorisnickaSifra, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(btnPrijaviSe)
-                        .addGap(0, 0, Short.MAX_VALUE))
-                    .addComponent(lblGreska, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap())
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel1)
+                            .addComponent(txtUsername, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(18, 18, 18)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel2)
+                            .addComponent(txtPassword, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(18, 18, 18)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(btnLogIn)
+                            .addComponent(lblError, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addComponent(imgStar))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private final int MAX_BROJ_POKUSAJA = 3;
-    private int brojPokusaja = MAX_BROJ_POKUSAJA;
-   
-    
-    private void btnPrijaviSeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPrijaviSeActionPerformed
+    private void btnLogInActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLogInActionPerformed
         try {
-            User inzenjer = Controller.getInstance().prijaviSe(txtKorisnickoIme.getText().trim(), txtKorisnickaSifra.getText().trim());
+            User user = Controller.getInstance().logIn(txtUsername.getText().trim(), txtPassword.getText().trim());
             this.dispose();
-//            FormGlavna formGlavna = new FormGlavna();
-//            formGlavna.setTitle("Ulogovani ste kao : "+inzenjer.getKorisnickoIme());
-//            formGlavna.setVisible(true);
+            FormMain formMain = new FormMain();
+            formMain.setTitle("Ulogovani ste kao: "+user.getName()+" "+user.getSurname());
+            formMain.setVisible(true);
         } catch (Exception ex) {
-           if(brojPokusaja==0) this.dispose();
-           brojPokusaja=brojPokusaja-1;     
-           lblGreska.setText(ex.getMessage()+" Ostalo pokusaja: "+brojPokusaja);
+            lblError.setText("Neuspesno logovanje."); 
+            //dodaj validate
         }
-    }//GEN-LAST:event_btnPrijaviSeActionPerformed
+    }//GEN-LAST:event_btnLogInActionPerformed
 
     /**
      * @param args the command line arguments
@@ -121,11 +123,16 @@ public class FormLogIn extends javax.swing.JFrame {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnPrijaviSe;
+    private javax.swing.JButton btnLogIn;
+    private javax.swing.JLabel imgStar;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel lblGreska;
-    private javax.swing.JPasswordField txtKorisnickaSifra;
-    private javax.swing.JTextField txtKorisnickoIme;
+    private javax.swing.JLabel lblError;
+    private javax.swing.JPasswordField txtPassword;
+    private javax.swing.JTextField txtUsername;
     // End of variables declaration//GEN-END:variables
+
+    private void prepareView() {
+        setLocationRelativeTo(null);
+    }
 }

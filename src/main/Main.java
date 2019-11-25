@@ -9,6 +9,7 @@ import database.connection.ConnectionCinema;
 import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import ui.FormLogIn;
 
 
 /**
@@ -18,13 +19,14 @@ import java.util.logging.Logger;
 public class Main {
 
     public static void main(String[] args) {
-        try {
-            ConnectionCinema cc = new ConnectionCinema();
+//        try {
+//            ConnectionCinema cc = new ConnectionCinema();
             
-            ConnectionCinema.getInstance();
+            FormLogIn formLogIn = new FormLogIn();
+            formLogIn.setVisible(true);
             
-        } catch (SQLException ex) {
-            Logger.getLogger(Main.class.getName()).log(Level.SEVERE, null, ex);
-        }
+//        } catch (SQLException ex) {
+//            Logger.getLogger(Main.class.getName()).log(Level.SEVERE, null, ex);
+//        }
     }
 }

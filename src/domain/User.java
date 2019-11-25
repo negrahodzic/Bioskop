@@ -21,7 +21,7 @@ public class User {
     public User() {
     }
 
-    public User(Long id, String username, String password, String email, String name, String surname) {
+    public User(Long id, String username, String password,  String name, String surname,String email) {
         this.id = id;
         this.username = username;
         this.password = password;
@@ -61,8 +61,8 @@ public class User {
     public void setName(String name) {
         this.name = name;
     }
-    
-        public String getSurname() {
+
+    public String getSurname() {
         return surname;
     }
 
