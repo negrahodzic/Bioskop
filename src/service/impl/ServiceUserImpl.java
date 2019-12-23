@@ -21,10 +21,31 @@ public class ServiceUserImpl implements ServiceUser {
     public ServiceUserImpl() {
         this.storageUser = new StorageDatabaseUser();
     }
+    
+    @Override
+    public User createUser(User user)throws Exception{
+        return storageUser.createUser(user);
+    }
 
     @Override
-    public String save(User user) throws Exception {
-        return storageUser.save(user.getUsername(), user.getPassword(), user.getName(), user.getSurname(), user.getEmail());
+    public User saveUser(User user) throws Exception {
+        return storageUser.saveUser(user);
+    }
+
+    @Override
+    public User loginUser(User user) throws Exception {
+        return storageUser.loginUser(user);
+    }
+
+    @Override
+    public User updateUser(User user) throws Exception {
+        return storageUser.updateUser(user);
+        
+    }
+
+    @Override
+    public void deleteUser() throws Exception {
+        storageUser.deleteUser();
     }
 
 }

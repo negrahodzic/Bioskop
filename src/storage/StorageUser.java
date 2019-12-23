@@ -5,10 +5,17 @@
  */
 package storage;
 
+import domain.User;
+
 /**
  *
  * @author Negra
  */
 public interface StorageUser {
-    String save(String username, String password, String name, String surname, String email) throws Exception;
+    User saveUser(User user) throws Exception;
+    User createUser(User user) throws Exception;
+    User loginUser(User user) throws Exception;
+    User updateUser(User user) throws Exception;
+    void deleteUser() throws Exception;
+
 }

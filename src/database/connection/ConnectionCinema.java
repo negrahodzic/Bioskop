@@ -30,7 +30,7 @@ public class ConnectionCinema {
             connection.setAutoCommit(false);
             System.out.println("Veza sa bazom bioskopa je uspostavljena!");
         } catch (SQLException sqlex) {
-            throw new SQLException("Veza sa bazom bioskopa nije uspostavljena");
+            throw new SQLException("Veza sa bazom bioskopa nije uspostavljena.");
         } catch (ClassNotFoundException ex) {
             System.out.println("Nije pronadjen drajver.");
         }

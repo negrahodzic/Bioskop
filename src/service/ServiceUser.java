@@ -6,11 +6,18 @@
 package service;
 
 import domain.User;
+import java.sql.SQLException;
 
 /**
  *
  * @author Negra
  */
 public interface ServiceUser {
-    String save(User user) throws Exception;
+    User saveUser(User user) throws Exception;
+    User createUser(User user) throws Exception;
+    User loginUser(User user) throws Exception;
+    User updateUser(User user) throws Exception;
+    void deleteUser() throws Exception;
+
+
 }
